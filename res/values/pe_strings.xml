@@ -19,6 +19,11 @@
     <string name="pe_tab_settings">Tabs in Settings</string>
     <string name="pe_tab_settings_change">Please relaunch settings to apply the changes</string>
     
+    <!-- App sidebar -->
+    <string name="app_sidebar_title">App sidebar</string>
+    <string name="app_sidebar_enable_title">Enable sidebar</string>
+    <string name="app_sidebar_sort_type_title">Sidebar sort order</string>
+    
     <!-- About phone screen,  setting option name-->
     <string name="pe_version">Project Equilibrium version</string>
     
