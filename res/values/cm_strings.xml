@@ -1203,6 +1203,30 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <string name="halo_pause_title">HALO pause active app</string>
     <string name="halo_pause_summary">When opening an app with HALO the underlying app will get paused (enabled by default on low memory devices)</string>
+
+
+    <!-- We want HALO popups -->
+    <string name="popups_title">Allow floating windows</string>
+    <string name="popups_summary">Controls whether you want floating windows from notification panel</string> 
+
+    <!-- Advanced low battery indicator options -->  
+    <string name="pref_low_battery_warning_policy_title">Low battery warning</string>
+    <string name="pref_low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
+    <string name="low_battery_warning_policy_popup_sound">Pop-up and sound</string>
+    <string name="low_battery_warning_policy_notif_sound">Notification and sound</string>
+    <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
+    <string name="low_battery_warning_policy_notif">Notification only</string>
+    <string name="low_battery_warning_policy_sound">Sound only</string>
+    <string name="low_battery_warning_policy_disabled">Disabled</string>
+
+    <!-- Quick puldown modes -->
+    <string name="no_notifications_pulldown_summary_nonperm">Pulldown quick settings if no non-permanent notifications are present</string>
+    <string name="no_notifications_pulldown_summary_all">Pulldown quick settings if no notifications are present</string>
+    <string name="no_notifications_pulldown_off">Off</string>
+    <string name="no_notifications_pulldown_nonperm">Non-permanent only</string>
+    <string name="no_notifications_pulldown_all">All Notifications</string>
+    <string name="title_no_notifications_pulldown">Quick pulldown without notifications</string>      
+
  
     <!-- Shortcut picker -->
     <string name="use_custom_app_title">Use custom application</string>
