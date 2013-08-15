@@ -1245,6 +1245,142 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="no_notifications_pulldown_nonperm">Non-permanent only</string>
     <string name="no_notifications_pulldown_all">All Notifications</string>
     <string name="title_no_notifications_pulldown">Quick pulldown without notifications</string>      
+ 
+    <!-- Screen-On Notification Light -->
+    <string name="screen_on_notification_led_title">Screen-On Notification Light</string>
+    <string name="screen_on_notification_led_summary">Enable Notification Light even when screen is on</string>
+
+    <!-- Network speed -->
+    <string name="show_network_speed">Network speed indicator</string>
+    <string name="show_network_speed_summary">Show network speed in statusbar</string>
+
+    <!-- Network speed color style -->
+    <string name="network_speed_color_title">Network speed color</string>
+    <string name="network_speed_color_style">Color style</string>
+    <string name="network_speed_color_reset">Reset</string>
+    <string name="network_speed_color_summary">Change the color of network speed indicator</string>    
+
+    <!-- TRDS Settings -->
+    <string name="trds_settings_title">Dark Droid</string>
+
+    <!-- General UI -->
+    <string name="misc_short">Misc</string>
+    <string name="title_ui">General UI</string>
+    <string name="title_ui_summary">Change the LCD Density</string>  
+
+    <!-- LCD Density -->
+    <string name="dpi">DPI</string>
+    <string name="lcd_density_title">LCD Density</string>
+    <string name="lcd_density_summary">unknown</string>
+    <string name="current_lcd_density">"Current LCD Density: "</string>
+    <string name="lcd_density_wizard">LCD Density Wizard</string>
+    <string name="follow_through_title">Follow through!</string>
+    <string name="follow_through_summary">Make sure you follow the steps one-by-one and complete each one before proceeding to the next.</string>
+    <string name="stock_density_title">1. Change LCD Density to stock value</string>
+    <string name="stock_density_summary">Tablets and older phones use 160. Most phones use 240. Galaxy Nexus uses 320 by default.</string>
+    <string name="stock_density_changed_summary">"Density set to: "</string>
+    <string name="reboot_title">2. Reboot!</string>
+    <string name="reboot_summary">Come back here after the reboot and complete the rest of the steps!</string>
+    <string name="clear_market_data_title">3. Clear all relevant market data.</string>
+    <string name="clear_market_data_summary">This step clears data from market, google play services and google services framework.</string>
+    <string name="clear_market_data_cleared">Data successfully cleared</string>
+    <string name="clear_market_data_donot_cleared">"Data couldn't be cleared, please clear it yourself!"</string>
+    <string name="reboot_cleardata_title">4. Reboot!</string>
+    <string name="reboot_cleardata_summary">Come back here after the reboot and complete the rest of the steps!</string>
+    <string name="open_market_title">5. Open Market and hit accept</string>
+    <string name="open_market_summary">Press back when done to return here.</string>
+    <string name="open_market_summary_could_not_open">"Couldn't open the market! If you're sure it's installed, open it yourself from the launcher."</string>
+    <string name="custom_density_title">6. Change density to whatever you like!</string>
+    <string name="custom_density_summary">If you ever have compatibility issues with the market, be sure to return here and repeat the process.</string>
+    <string name="custom_density_summary_invalid">"INVALID DENSITY!"</string>
+    <string name="stock_density">320 stock</string> 
+    <string name="custom_density">custom</string>
+    <string name="set_custom_density_title">Set custom density</string>
+    <string name="set_custom_density_set">Set</string>
+    <string name="custom_density_dialog_title">"WARNING!"</string>
+    <string name="custom_density_dialog_summary">"Changing your LCD density can cause unexpected app behavior. If you encounter market app incompatibility please return here and restart the process from step 1."</string>
+    <string name="custom_density_dialog_button_got">Got it!</string>
+    <string name="custom_density_dialog_button_reboot">Reboot now</string>
+    <string name="select_custom_app_title">Select custom application</string>
+
+    <!-- App sidebar -->
+    <string name="app_sidebar_title">Appbar</string>
+    <string name="app_sidebar_enable_title">Enable Appbar</string>
+    <string name="app_sidebar_summary">Customize your app sidebar</string>
+    <string name="app_sidebar_enable_summaryOn">Appbar is enabled</string>
+    <string name="app_sidebar_enable_summaryOff">Appbar is disabled</string>
+    <string name="app_sidebar_setup_items_title">Setup Appbar content</string>
+    <string name="app_sidebar_setup_items_summary">Add, remove, and position items in the @ppbar</string>
+    <string name="app_sidebar_transparency_title">Appbar transparency</string>
+    <string name="app_sidebar_transparency_summary">Adjust the Appbar transparency level</string>
+    <string name="app_sidebar_position_title">Appbar position</string>
+    <string name="app_sidebar_position_summary">Position the Appbar on the left or right side of the screen</string>
+    <string name="app_sidebar_position_left">Left</string>
+    <string name="app_sidebar_position_right">Right</string>
+    <string name="app_sidebar_hide_labels_title">Hide icon labels</string>
+    <string name="app_sidebar_hide_labels_summary">Hide Appbar icon labels</string>
+    <string name="tab_category">Visible Tab</string>
+    <string name="use_tab_title">Display tab</string>
+    <string name="use_tab_summary">Display a visible tab on the side which will display the \@appbar when touched.</string>
+    <string name="tab_position_title">Tab location</string>
+    <string name="tab_position_summary">Display the tab on the top, middle, or bottom on the side of the screen.</string>
+    <string name="tab_size_title">Tab size</string>
+    <string name="tab_size_summary">Change the size of the visible tab.</string>
+    <string name="trigger_category">Trigger region</string>
+    <string name="trigger_width_title">Trigger width</string>
+    <string name="trigger_width_summary">Adjust the width of the trigger area</string>
+    <string name="trigger_top_title">Trigger position</string>
+    <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
+    <string name="trigger_bottom_title">Trigger height</string>
+    <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+
+    <!-- Hardware tunables - Vibrator intensity -->
+    <string name="vibrator_intensity_title">Vibrator intensity</string>
+    <string name="vibrator_warning">Values higher than %1$d are not recommended</string>
+
+    <!-- Hardware tunables - Color calibration -->
+    <string name="color_calibration_title">Color calibration</string>
+    <string name="color_calibration_summary">Calibrate on-screen colors</string>
+    <string name="color_red_title">Red</string>
+    <string name="color_green_title">Green</string>
+    <string name="color_blue_title">Blue</string>
+
+    <!-- Recents Ram Bar -->
+    <string name="ram_bar">Recents RAM bar</string>
+    <string name="ram_bar_note_title">Note</string>
+    <string name="ram_bar_note_summary">This RAM bar shows the actual android memory (RAM) utilization. Please note that having cached apps helps your device open apps much faster. For further explanations on how android memory (RAM) management works, check the help menu.</string>
+    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
+    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
+    <string name="ram_bar_none">None</string>
+    <string name="ram_bar_apps">Applications</string>
+    <string name="ram_bar_cache">Applications and cache</string>
+    <string name="ram_bar_other">Applications, cache and other</string>
+    <string name="ram_bar_style_cat">Recents RAM bar style</string>
+    <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
+    <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
+    <string name="ram_bar_color_total_mem_color">Other RAM color</string>
+    <string name="ram_bar_color_enabled">Enabled</string>
+    <string name="ram_bar_color_disabled">Disabled</string>
+    <string name="ram_bar_button_help">Help</string>
+    <string name="ram_bar_button_reset">Reset colors</string> 
+
+    <!-- Keyboard and Input ASS methods  -->
+    <string name="title_keyboard_input">Keyboard and input methods</string>
+    <string name="disable_fullscreen_keyboard_title">Disable fullscreen keyboard</string>
+    <string name="disable_fullscreen_keyboard_summary">Landscape keyboard will never take up entire screen</string>
+
+    <!-- NFC polling mode -->
+    <string name="nfc_polling_mode_title">NFC polling mode</string>
+    <string name="nfc_polling_mode_screen_off">Screen off</string>
+    <string name="nfc_polling_mode_screen_locked">Screen on, locked</string>
+    <string name="nfc_polling_mode_screen_unlocked">Screen on, unlocked (default)</string>     
+
+    <!-- Permissions Management -->
+    <string name="permissions_settings_title">Permissions Management</string>
+
+    <!-- Quicksettings panel floating window -->
+    <string name="title_floating_window">Floating window</string>
+    <string name="summary_floating_window">Open Quick Settings tiles in floating window</string>  
 
  
     <!-- Shortcut picker -->

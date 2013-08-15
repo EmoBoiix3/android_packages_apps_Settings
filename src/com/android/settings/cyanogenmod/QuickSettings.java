@@ -52,6 +52,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String GENERAL_SETTINGS = "pref_general_settings";
     private static final String STATIC_TILES = "static_tiles";
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
+    private static final String FLOATING_WINDOW ="floating_window"; 
 
     private MultiSelectListPreference mRingMode;
     private ListPreference mNetworkMode;
@@ -60,6 +61,23 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
     private PreferenceCategory mDynamicTiles;
+
+    MultiSelectListPreference mRingMode;
+    ListPreference mNetworkMode;
+    ListPreference mScreenTimeoutMode;
+    CheckBoxPreference mDynamicAlarm;
+    CheckBoxPreference mDynamicBugReport;
+    CheckBoxPreference mDynamicDockBattery;
+    CheckBoxPreference mDynamicWifi;
+    CheckBoxPreference mDynamicIme;
+    ListPreference mNoNotificationsPulldown;    
+    CheckBoxPreference mDynamicUsbTether;
+    CheckBoxPreference mCollapsePanel;
+    CheckBoxPreference mFloatingWindow; 
+    ListPreference mQuickPulldown;
+    PreferenceCategory mGeneralSettings;
+    PreferenceCategory mStaticTiles;
+    PreferenceCategory mDynamicTiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,6 +107,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
             updatePulldownSummary(quickPulldownValue);
         }
+
+
+        mCollapsePanel = (CheckBoxPreference) prefSet.findPreference(COLLAPSE_PANEL);
+        mCollapsePanel.setChecked(Settings.System.getInt(resolver, Settings.System.QS_COLLAPSE_PANEL, 0) == 1);
+
+	mFloatingWindow = (CheckBoxPreference) prefSet.findPreference(FLOATING_WINDOW);
+        mFloatingWindow.setChecked(Settings.System.getInt(resolver, Settings.System.QS_FLOATING_WINDOW, 0) == 1);
+
 
         // Add the sound mode
         mRingMode = (MultiSelectListPreference) prefSet.findPreference(EXP_RING_MODE);
@@ -141,6 +167,46 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             }
         }
     }
+
+
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mDynamicAlarm) {
+            Settings.System.putInt(resolver, Settings.System.QS_DYNAMIC_ALARM,
+                    mDynamicAlarm.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mDynamicBugReport) {
+            Settings.System.putInt(resolver, Settings.System.QS_DYNAMIC_BUGREPORT,
+                    mDynamicBugReport.isChecked() ? 1 : 0);
+            return true;
+        } else if (mDynamicDockBattery != null && preference == mDynamicDockBattery) {
+            Settings.System.putInt(resolver, Settings.System.QS_DYNAMIC_DOCK_BATTERY,
+                    mDynamicDockBattery.isChecked() ? 1 : 0);
+            return true;
+        } else if (mDynamicIme != null && preference == mDynamicIme) {
+            Settings.System.putInt(resolver, Settings.System.QS_DYNAMIC_IME,
+                    mDynamicIme.isChecked() ? 1 : 0);
+            return true;
+        } else if (mDynamicUsbTether != null && preference == mDynamicUsbTether) {
+            Settings.System.putInt(resolver, Settings.System.QS_DYNAMIC_USBTETHER,
+                    mDynamicUsbTether.isChecked() ? 1 : 0);
+            return true;
+        } else if (mDynamicWifi != null && preference == mDynamicWifi) {
+            Settings.System.putInt(resolver, Settings.System.QS_DYNAMIC_WIFI,
+                    mDynamicWifi.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mCollapsePanel) {
+            Settings.System.putInt(resolver, Settings.System.QS_COLLAPSE_PANEL,
+                    mCollapsePanel.isChecked() ? 1 : 0);
+            return true;
+	} else if (preference == mFloatingWindow) {
+            Settings.System.putInt(resolver, Settings.System.QS_FLOATING_WINDOW,
+                    mFloatingWindow.isChecked() ? 1 : 0);
+            return true;   
+	}
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
 
     private class MultiSelectListPreferenceComparator implements Comparator<String> {
         private MultiSelectListPreference pref;
