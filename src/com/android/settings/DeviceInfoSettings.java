@@ -67,7 +67,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_UPDATE_SETTING = "additional_system_update_settings";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
-    private static final String KEY_MOD_VERSION = "mod_version";
+    private static final String KEY_CM_VERSION = "cm_version";
+    private static final String KEY_PE_VERSION = "pe_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
@@ -93,8 +94,10 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_MOD_VERSION, "ro.cm.version");
-        findPreference(KEY_MOD_VERSION).setEnabled(true);
+        setValueSummary(KEY_CM_VERSION, "ro.cm.version");
+        findPreference(KEY_CM_VERSION).setEnabled(true);
+        setValueSummary(KEY_PE_VERSION, "ro.pe.version");
+        findPreference(KEY_PE_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
 
         if (!SELinux.isSELinuxEnabled()) {
@@ -241,7 +244,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                         Toast.LENGTH_LONG);
                 mDevHitToast.show();
             }
-        } else if (preference.getKey().equals(KEY_MOD_VERSION)) {
+        } else if (preference.getKey().equals(KEY_CM_VERSION)) {
             System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
             mHits[mHits.length-1] = SystemClock.uptimeMillis();
             if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
