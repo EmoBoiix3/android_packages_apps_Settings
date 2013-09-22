@@ -16,7 +16,7 @@
 <resources>
     
     <!-- Tab Settings -->
-    <string name="pe_tab_settings">Enable Tabs in Settings</string>
+    <string name="pe_tab_settings">Tabs in Settings</string>
     <string name="pe_tab_settings_change">Please relaunch settings to apply the changes</string>
     
     <!-- About phone screen,  setting option name-->
