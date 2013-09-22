@@ -176,6 +176,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity android:name="SettingsNormal"
+                android:label="@string/settings_label_launcher"
+                android:taskAffinity="com.android.settings"
+                android:launchMode="singleTask">
+        </activity>
+        
+        <activity android:name="SettingsNetwork"
+                android:label="@string/settings_label_launcher"
+                android:taskAffinity="com.android.settings"
+                android:launchMode="singleTask">
+        </activity>
+        
+        <activity android:name="SettingsDevice"
+                android:label="@string/settings_label_launcher"
+                android:taskAffinity="com.android.settings"
+                android:launchMode="singleTask">
+        </activity>
+        
+        <activity android:name="SettingsSystem"
+                android:label="@string/settings_label_launcher"
+                android:taskAffinity="com.android.settings"
+                android:launchMode="singleTask">
+        </activity>
 
         <activity android:name=".SubSettings"
                 android:taskAffinity="com.android.settings"

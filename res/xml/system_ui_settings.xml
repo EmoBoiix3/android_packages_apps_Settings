@@ -45,6 +45,11 @@
         android:key="expanded_desktop_no_navbar"
         android:title="@string/power_menu_expanded_desktop"
         android:persistent="false" />
+    
+    <CheckBoxPreference
+        android:key="tab_settings"
+        android:title="@string/pe_tab_settings"
+        android:persistent="true" />
 
     <PreferenceCategory
         android:key="navigation_bar"

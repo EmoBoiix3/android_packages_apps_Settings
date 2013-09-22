@@ -25,7 +25,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.android.settings.R;
-import com.android.settings.Settings;
+import com.android.settings.SettingsNormal;
 
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.Tracker;

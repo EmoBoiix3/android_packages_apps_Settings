@@ -1921,7 +1921,7 @@ public class DataUsageSummary extends Fragment {
 
     /**
      * Dialog to request user confirmation before setting
-     * {@link android.provider.Settings.Global#DATA_ROAMING}.
+     * {@link android.provider.SettingsNormal.Global#DATA_ROAMING}.
      */
     public static class ConfirmDataRoamingFragment extends DialogFragment {
         public static void show(DataUsageSummary parent) {
