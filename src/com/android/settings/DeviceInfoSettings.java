@@ -93,7 +93,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
-        findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
+        findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion(true));
+        findPreference(KEY_KERNEL_VERSION).setEnabled(true);
         setValueSummary(KEY_CM_VERSION, "ro.cm.version");
         findPreference(KEY_CM_VERSION).setEnabled(true);
         setValueSummary(KEY_PE_VERSION, "ro.pe.version");
@@ -258,6 +259,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
             }
+        } else if (preference.getKey().equals(KEY_KERNEL_VERSION)) {
+        	findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion(false));
         } else if (preference.getKey().equals(KEY_SELINUX_STATUS)) {
             System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
             mHits[mHits.length-1] = SystemClock.uptimeMillis();
@@ -367,9 +370,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         }
     }
 
-    public static String getFormattedKernelVersion() {
+    public static String getFormattedKernelVersion(boolean shortline) {
         try {
-            return formatKernelVersion(readLine(FILENAME_PROC_VERSION));
+        	return formatKernelVersion(readLine(FILENAME_PROC_VERSION), shortline);
 
         } catch (IOException e) {
             Log.e(LOG_TAG,
@@ -380,7 +383,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         }
     }
 
-    public static String formatKernelVersion(String rawKernelVersion) {
+    public static String formatKernelVersion(String rawKernelVersion, boolean shortline) {
         // Example (see tests for more):
         // Linux version 3.0.31-g6fb96c9 (android-build@xxx.xxx.xxx.xxx.com) \
         //     (gcc version 4.6.x-xxx 20120106 (prerelease) (GCC) ) #1 SMP PREEMPT \
@@ -403,9 +406,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                     + " groups");
             return "Unavailable";
         }
-        return m.group(1) + "\n" +                 // 3.0.31-g6fb96c9
-            m.group(2) + " " + m.group(3) + "\n" + // x@y.com #1
-            m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
+        if (shortline == true) {
+        	return m.group(1);                         // 3.0.31-g6fb96c9
+        } else {
+        	return m.group(1) + "\n" +                 // 3.0.31-g6fb96c9
+                    m.group(2) + " " + m.group(3) + "\n" + // x@y.com #1
+                    m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
+        }
     }
 
     /**
