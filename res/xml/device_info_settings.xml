@@ -162,7 +162,7 @@
         <!-- CyanogenMod version -->
         <Preference android:key="cm_version"
                 style="?android:preferenceInformationStyle"
-                android:title="@string/cm_version"
+                android:title="@string/mod_version"
                 android:summary="@string/mod_version_default" />
         
         <!-- Project Equilibrium version -->
