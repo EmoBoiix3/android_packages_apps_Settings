@@ -49,6 +49,13 @@
         android:fragment="com.android.settings.DataUsageSummary"
         android:title="@string/data_usage_summary_title"
         android:icon="@drawable/ic_settings_data_usage" />
+    
+    <!-- Tethering -->
+    <header
+        android:fragment="com.android.settings.TetherSettings"
+        android:key="tether_settings"
+        android:title="@string/tether_settings_title_all"
+        android:icon="@drawable/ic_settings_tethering" />
 
     <!-- Operator hook -->
     <header

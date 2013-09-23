@@ -23,6 +23,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
@@ -33,11 +34,14 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 import com.android.settings.nfc.NfcEnabler;
@@ -203,6 +207,9 @@ public class WirelessSettings extends SettingsPreferenceFragment {
 
         mAirplaneModeEnabler = new AirplaneModeEnabler(activity, mAirplaneModePreference);
         mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam);
+        
+        SharedPreferences PREF = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        boolean TAB_SETTING = PREF.getBoolean("tab_settings", true);
 
         // Remove NSD checkbox by default
         getPreferenceScreen().removePreference(nsd);
@@ -269,7 +276,7 @@ public class WirelessSettings extends SettingsPreferenceFragment {
         // Disable Tethering if it's not allowed or if it's a wifi-only device
         ConnectivityManager cm =
                 (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (isSecondaryUser || !cm.isTetheringSupported()) {
+        if (isSecondaryUser || !cm.isTetheringSupported() || TAB_SETTING == true) {
             getPreferenceScreen().removePreference(findPreference(KEY_TETHER_SETTINGS));
         } else {
             Preference p = findPreference(KEY_TETHER_SETTINGS);
