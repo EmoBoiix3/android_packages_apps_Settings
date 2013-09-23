@@ -89,7 +89,6 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
 			// Hide navigation bar category on devices without navigation bar
 			if (!hasNavBar) {
 				prefScreen.removePreference(findPreference(CATEGORY_NAVBAR));
-				mPieControl = null;
 			}
 		} catch (RemoteException e) {
 			Log.e(TAG, "Error getting navigation bar status");
