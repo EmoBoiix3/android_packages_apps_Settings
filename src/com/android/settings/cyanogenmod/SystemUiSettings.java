@@ -17,12 +17,14 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
@@ -53,6 +55,9 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
 
 		addPreferencesFromResource(R.xml.system_ui_settings);
 		PreferenceScreen prefScreen = getPreferenceScreen();
+		
+		SharedPreferences PREF = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        boolean TAB_SETTING = PREF.getBoolean("tab_settings", true);
 
 		mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);
 
@@ -62,6 +67,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
 
 		mTabSettings = (CheckBoxPreference) findPreference(KEY_TAB_SETTINGS);
 		mTabSettings.setOnPreferenceChangeListener(this);
+		mTabSettings.setChecked(TAB_SETTING == true);
 
 		int expandedDesktopValue = Settings.System.getInt(getContentResolver(),
 				Settings.System.EXPANDED_DESKTOP_STYLE, 0);
