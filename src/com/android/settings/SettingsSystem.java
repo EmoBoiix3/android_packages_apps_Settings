@@ -108,7 +108,6 @@ public class SettingsSystem extends PreferenceActivity
     // Show only these settings for restricted users
     private int[] SETTINGS_FOR_RESTRICTED = {
             R.id.personal_section,
-            R.id.location_settings,
             R.id.security_settings,
             R.id.language_settings,
             R.id.account_settings,

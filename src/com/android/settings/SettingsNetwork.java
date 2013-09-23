@@ -17,6 +17,7 @@
 package com.android.settings;
 
 import com.android.settings.profiles.ProfileEnabler;
+import com.android.settings.GPSEnabler;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -110,6 +111,7 @@ public class SettingsNetwork extends PreferenceActivity
             R.id.wireless_section,
             R.id.wifi_settings,
             R.id.bluetooth_settings,
+            R.id.location_settings,
             R.id.data_usage_settings,
             R.id.button_settings,
             R.id.wireless_settings
@@ -570,6 +572,7 @@ public class SettingsNetwork extends PreferenceActivity
         private final WifiEnabler mWifiEnabler;
         private final BluetoothEnabler mBluetoothEnabler;
         private final ProfileEnabler mProfileEnabler;
+        private final GPSEnabler mGPSEnabler;
 
         private AuthenticatorHelper mAuthHelper;
 
@@ -586,7 +589,8 @@ public class SettingsNetwork extends PreferenceActivity
             if (header.fragment == null && header.intent == null) {
                 return HEADER_TYPE_CATEGORY;
             } else if (header.id == R.id.wifi_settings
-                    || header.id == R.id.bluetooth_settings) {
+                    || header.id == R.id.bluetooth_settings
+                    || header.id == R.id.location_settings) {
                 return HEADER_TYPE_SWITCH;
             } else {
                 return HEADER_TYPE_NORMAL;
@@ -631,6 +635,7 @@ public class SettingsNetwork extends PreferenceActivity
             mWifiEnabler = new WifiEnabler(context, new Switch(context));
             mBluetoothEnabler = new BluetoothEnabler(context, new Switch(context));
             mProfileEnabler = new ProfileEnabler(context, new Switch(context));
+            mGPSEnabler = new GPSEnabler(context, new Switch(context));
         }
 
         @Override
@@ -689,6 +694,8 @@ public class SettingsNetwork extends PreferenceActivity
                         mWifiEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.bluetooth_settings) {
                         mBluetoothEnabler.setSwitch(holder.switch_);
+                    } else if (header.id == R.id.location_settings) {
+                        mGPSEnabler.setSwitch(holder.switch_);
                     }
                     // No break, fall through on purpose to update common fields
 
@@ -726,12 +733,14 @@ public class SettingsNetwork extends PreferenceActivity
             mWifiEnabler.resume();
             mBluetoothEnabler.resume();
             mProfileEnabler.resume();
+            mGPSEnabler.resume();
         }
 
         public void pause() {
             mWifiEnabler.pause();
             mBluetoothEnabler.pause();
             mProfileEnabler.pause();
+            mGPSEnabler.pause();
         }
     }
 

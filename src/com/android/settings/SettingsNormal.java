@@ -17,6 +17,7 @@
 package com.android.settings;
 
 import com.android.settings.profiles.ProfileEnabler;
+import com.android.settings.GPSEnabler;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -642,6 +643,7 @@ public class SettingsNormal extends PreferenceActivity
         private final WifiEnabler mWifiEnabler;
         private final BluetoothEnabler mBluetoothEnabler;
         private final ProfileEnabler mProfileEnabler;
+        private final GPSEnabler mGPSEnabler;
 
         private AuthenticatorHelper mAuthHelper;
 
@@ -659,7 +661,8 @@ public class SettingsNormal extends PreferenceActivity
                 return HEADER_TYPE_CATEGORY;
             } else if (header.id == R.id.wifi_settings
                     || header.id == R.id.bluetooth_settings
-                    || header.id == R.id.profiles_settings) {
+                    || header.id == R.id.profiles_settings
+                    || header.id == R.id.location_settings) {
                 return HEADER_TYPE_SWITCH;
             } else {
                 return HEADER_TYPE_NORMAL;
@@ -704,6 +707,7 @@ public class SettingsNormal extends PreferenceActivity
             mWifiEnabler = new WifiEnabler(context, new Switch(context));
             mBluetoothEnabler = new BluetoothEnabler(context, new Switch(context));
             mProfileEnabler = new ProfileEnabler(context, new Switch(context));
+            mGPSEnabler = new GPSEnabler(context, new Switch(context));
         }
 
         @Override
@@ -764,6 +768,8 @@ public class SettingsNormal extends PreferenceActivity
                         mBluetoothEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.profiles_settings) {
                         mProfileEnabler.setSwitch(holder.switch_);
+                    } else if (header.id == R.id.location_settings) {
+                        mGPSEnabler.setSwitch(holder.switch_);
                     }
                     // No break, fall through on purpose to update common fields
 
@@ -801,12 +807,14 @@ public class SettingsNormal extends PreferenceActivity
             mWifiEnabler.resume();
             mBluetoothEnabler.resume();
             mProfileEnabler.resume();
+            mGPSEnabler.resume();
         }
 
         public void pause() {
             mWifiEnabler.pause();
             mBluetoothEnabler.pause();
             mProfileEnabler.pause();
+            mGPSEnabler.resume();
         }
     }
 
