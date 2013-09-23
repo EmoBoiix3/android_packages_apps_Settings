@@ -52,6 +52,7 @@
     
     <!-- Tethering -->
     <header
+        android:id="@+id/tethering_settings"
         android:fragment="com.android.settings.TetherSettings"
         android:key="tether_settings"
         android:title="@string/tether_settings_title_all"

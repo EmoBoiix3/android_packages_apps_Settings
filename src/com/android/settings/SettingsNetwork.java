@@ -33,6 +33,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.INetworkManagementService;
 import android.os.RemoteException;
@@ -98,6 +99,8 @@ public class SettingsNetwork extends PreferenceActivity
 
     private static final String SAVE_KEY_CURRENT_HEADER = "com.android.settings.CURRENT_HEADER";
     private static final String SAVE_KEY_PARENT_HEADER = "com.android.settings.PARENT_HEADER";
+    
+    private static final boolean isSecondaryUser = UserHandle.myUserId() != UserHandle.USER_OWNER;
 
     private String mFragmentClass;
     private int mTopLevelHeaderId;
@@ -112,6 +115,7 @@ public class SettingsNetwork extends PreferenceActivity
             R.id.wifi_settings,
             R.id.bluetooth_settings,
             R.id.location_settings,
+            R.id.tethering_settings,
             R.id.data_usage_settings,
             R.id.button_settings,
             R.id.wireless_settings
@@ -435,6 +439,13 @@ public class SettingsNetwork extends PreferenceActivity
             } else if (id == R.id.bluetooth_settings) {
                 // Remove Bluetooth Settings if Bluetooth service is not available.
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
+                    target.remove(i);
+                }
+            } else if (id == R.id.tethering_settings) {
+            	// Disable Tethering if it's not allowed or if it's a wifi-only device
+                ConnectivityManager cm =
+                        (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (isSecondaryUser || !cm.isTetheringSupported()) {
                     target.remove(i);
                 }
             } else if (id == R.id.data_usage_settings) {
