@@ -55,6 +55,11 @@
         android:key="pie_control"
         android:fragment="com.android.settings.cyanogenmod.PieControl"
         android:title="@string/pie_control_title" />
+    
+    <PreferenceScreen
+		android:key="app_sidebar"
+		android:fragment="com.android.settings.chameleonos.AppSidebar"
+		android:title="@string/app_sidebar_title" />
 
     <PreferenceCategory
         android:key="navigation_bar"
