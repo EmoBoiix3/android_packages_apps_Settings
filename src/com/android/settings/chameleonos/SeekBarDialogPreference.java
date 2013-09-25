@@ -28,8 +28,8 @@ public class SeekBarDialogPreference extends DialogPreference implements SeekBar
         TypedArray seekBarType = context.obtainStyledAttributes(attrs,
                 R.styleable.SeekBarDialogPreference, 0, 0);
 
-        mMax = seekBarType.getInt(R.styleable.SeekBarDialogPreference_max, 100);
-        mMin = seekBarType.getInt(R.styleable.SeekBarDialogPreference_min, 0);
+        mMax = seekBarType.getInt(R.styleable.SeekBarDialogPreference_maxseek, 100);
+        mMin = seekBarType.getInt(R.styleable.SeekBarDialogPreference_minseek, 0);
 
         mDefault = dialogType.getInt(com.android.internal.R.styleable.Preference_defaultValue, mMin);
 
